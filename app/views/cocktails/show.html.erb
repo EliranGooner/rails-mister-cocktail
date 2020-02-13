@@ -1,0 +1,55 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://winedharma.com/sites/winedharma.com/files/imagecache/auto-768/story/1634-aperol-spritz-drink-recipe-cocktail-wine-sparkling-water-aperol-bitter.jpg)">
+  <%= @cocktail.name %>
+  <div class="absolute">
+    <%= link_to 'Back to cocktails', cocktails_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div clas="container">
+  <div class="row">
+    <div class="col-6">
+      <h3 class="text-white">Ingredients:</h3>
+      <ul>
+      <% @cocktail.doses.each do |dose| %>
+        <div class="d-flex">
+        <li class="text-white mr-2 "><%= dose.ingredient.name %> - <%= dose.description %></li>
+        <%= link_to '    <button type="button" class="close text-white" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>'.html_safe, cocktail_dose_path(dose.cocktail.id, dose), method: :delete %>
+        </div>
+      <% end %>
+      </ul>
+    </div>
+    <div class="col-6">
+      <h3 class="m-2 text-white">Add a ingredient</h3>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :ingredient, collection: Ingredient.all, input_html: { class: 'select2' }, include_hidden: false %>
+        <%= f.input :description %>
+        <%= f.submit "Add Ingredient", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h3 class="text-white">Reviews:</h3>
+      <ul>
+      <% @cocktail.reviews.each do |review| %>
+        <div class="d-flex">
+        <li class="text-white mr-2 "><%= review.stars %> - <%= review.content %></li>
+        </div>
+      <% end %>
+      </ul>
+    </div>
+    <div class="col-6">
+      <h1 class="m-2">Add a review</h1>
+      <%= simple_form_for [@cocktail, @review] do |f| %>
+        <%= f.input :content%>
+        <%= f.input :stars %>
+        <%= f.submit "Create Review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+</div>

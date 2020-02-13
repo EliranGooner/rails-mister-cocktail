@@ -1,0 +1,13 @@
+<%= render 'shared/banner' %>
+  <div class="container d-flex">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card m-3 bg-info " style="width: 18rem;">
+        <img class="card-img-top" src="https://kitchenswagger.com/wp-content/uploads/2019/10/aperol-spritz-dark2.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title d-flex justify-content-center"><%=cocktail.name%></h5>
+          <p class="card-text d-flex justify-content-center">Interesting cocktail</p>
+          <%= link_to 'Show cocktail', cocktail_path(cocktail), class: "btn btn-primary d-flex justify-content-center" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
