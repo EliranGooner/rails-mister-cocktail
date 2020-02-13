@@ -3,7 +3,7 @@
     <% @cocktails.each do |cocktail| %>
       <div class="card m-3 bg-info " style="width: 18rem;">
         <% if cocktail.photo.attached? %>
-          <%= cl_image_path cocktail.photo.key%>
+          <%= cl_image_tag cocktail.photo.key, height: 250%>
         <% else %>
           <img src="https://kitchenswagger.com/wp-content/uploads/2019/10/aperol-spritz-dark2.jpg" alt="spritz" height="250">
         <% end %>
