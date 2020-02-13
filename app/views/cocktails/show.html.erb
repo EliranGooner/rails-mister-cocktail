@@ -23,7 +23,7 @@
     <div class="col-6">
       <h3 class="m-2 text-white">Add a ingredient</h3>
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.input :ingredient, collection: Ingredient.all, input_html: { class: 'select2' }, include_hidden: false %>
+        <%= f.input :ingredient_id, collection: Ingredient.all, input_html: { class: 'select2' }, include_hidden: false %>
         <%= f.input :description %>
         <%= f.submit "Add Ingredient", class: "btn btn-primary" %>
       <% end %>
