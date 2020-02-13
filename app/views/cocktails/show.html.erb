@@ -1,10 +1,11 @@
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://winedharma.com/sites/winedharma.com/files/imagecache/auto-768/story/1634-aperol-spritz-drink-recipe-cocktail-wine-sparkling-water-aperol-bitter.jpg)">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @cocktail.photo.key%>)">
   <%= @cocktail.name %>
   <div class="absolute">
     <%= link_to 'Back to cocktails', cocktails_path, class: "btn btn-primary" %>
   </div>
 </div>
-<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="d-flex justify-content-center">
+</div>
 <div clas="container">
   <div class="row">
     <div class="col-6">

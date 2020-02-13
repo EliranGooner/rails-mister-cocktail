@@ -2,7 +2,11 @@
   <div class="container d-flex">
     <% @cocktails.each do |cocktail| %>
       <div class="card m-3 bg-info " style="width: 18rem;">
-        <img class="card-img-top" src="https://kitchenswagger.com/wp-content/uploads/2019/10/aperol-spritz-dark2.jpg" alt="Card image cap">
+        <% if cocktail.photo.attached? %>
+          <%= cl_image_path cocktail.photo.key, class: "card-img-top" %>
+        <% else %>
+          <img src="https://kitchenswagger.com/wp-content/uploads/2019/10/aperol-spritz-dark2.jpg" alt="spritz" height="250">
+        <% end %>
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center"><%=cocktail.name%></h5>
           <p class="card-text d-flex justify-content-center">Interesting cocktail</p>
