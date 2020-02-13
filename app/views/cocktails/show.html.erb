@@ -4,7 +4,7 @@
     <%= link_to 'Back to cocktails', cocktails_path, class: "btn btn-primary" %>
   </div>
 </div>
-
+<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
 <div clas="container">
   <div class="row">
     <div class="col-6">
